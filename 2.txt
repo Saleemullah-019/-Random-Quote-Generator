@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Random Quote Generator</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f3f4f6;
+      font-family: Arial, sans-serif;
+    }
+    .card {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      max-width: 500px;
+    }
+    .quote {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      font-weight: bold;
+    }
+    .author {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+      color: #555;
+    }
+    button {
+      padding: 0.5rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      background: #4f46e5;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #4338ca;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="quote" id="quote">Loading...</div>
+    <div class="author" id="author"></div>
+    <button onclick="newQuote()">New Quote</button>
+  </div>
+
+  <script>
+    const quotes = [
+      { text: "The best way to get started is to quit talking and begin doing.", author: "Walt Disney" },
+      { text: "Don't let yesterday take up too much of today.", author: "Will Rogers" },
+      { text: "It's not whether you get knocked down, it's whether you get up.", author: "Vince Lombardi" },
+      { text: "If you are working on something exciting, it will keep you motivated.", author: "Steve Jobs" },
+      { text: "Success is not in what you have, but who you are.", author: "Bo Bennett" },
+      { text: "Your limitation—it's only your imagination.", author: "Unknown" },
+      { text: "Push yourself, because no one else is going to do it for you.", author: "Unknown" },
+      { text: "Great things never come from comfort zones.", author: "Unknown" }
+    ];
+
+    function newQuote() {
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      document.getElementById("quote").innerText = `"${quotes[randomIndex].text}"`;
+      document.getElementById("author").innerText = `— ${quotes[randomIndex].author}`;
+    }
+
+    // Load first quote on page load
+    newQuote();
+  </script>
+</body>
+</html>
